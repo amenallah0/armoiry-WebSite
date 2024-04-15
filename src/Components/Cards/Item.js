@@ -1,12 +1,12 @@
 import React from 'react';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, Col, Row } from 'antd';
+import { Avatar, Card, Col, Row,Rate  } from 'antd';
 
 const { Meta } = Card;
 
 const App: React.FC = () => (
-  <Row gutter={8}>
-    <Col span={6}>
+  <Row gutter={[16, 16]}>
+    <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 8 }}>
       <Card
         style={{ width: '100%' }}
         cover={
@@ -20,15 +20,18 @@ const App: React.FC = () => (
           <EditOutlined key="edit" />,
           <EllipsisOutlined key="ellipsis" />,
         ]}
+        hoverable // Add hoverable functionality
+        bordered // Add bordered style
       >
         <Meta
           avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
           title="Card title"
           description="This is the description"
         />
+        <Rate allowHalf defaultValue={3.5} style={{marginTop:'7px'}}/>
       </Card>
     </Col>
-    <Col span={6}>
+    <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 8 }}>
       <Card
         style={{ width: '100%' }}
         cover={
@@ -42,12 +45,40 @@ const App: React.FC = () => (
           <EditOutlined key="edit" />,
           <EllipsisOutlined key="ellipsis" />,
         ]}
+        hoverable // Add hoverable functionality
+        bordered // Add bordered style
       >
         <Meta
           avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
           title="Card title"
           description="This is the description"
         />
+        <Rate allowHalf defaultValue={3.5} style={{marginTop:'7px'}}/>
+      </Card>
+    </Col><Col xs={24} sm={12} md={8} lg={6} style={{ padding: 8 }}>
+      <Card
+        style={{ width: '100%' }}
+        cover={
+          <img
+            alt="example"
+            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+          />
+        }
+        actions={[
+          <SettingOutlined key="setting" />,
+          <EditOutlined key="edit" />,
+          <EllipsisOutlined key="ellipsis" />,
+        ]}
+        hoverable // Add hoverable functionality
+        bordered // Add bordered style
+      >
+        <Meta
+          avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
+          title="Card title"
+          description="This is the description"
+        />
+        <Rate allowHalf defaultValue={3.5} style={{marginTop:'7px'}}/>
+
       </Card>
     </Col>
   </Row>
