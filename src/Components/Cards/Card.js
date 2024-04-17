@@ -14,7 +14,7 @@ const contentStyle = {
   border: '1px solid',
   borderRadius: '5px',
   height: '450px',
-  // Removed width: '100%' as we define it in imageStyle
+  width: '100%',
   objectFit: 'contain', // Ensure all images are fully visible
 };
 
@@ -45,10 +45,9 @@ const textContainerStyle = {
 
 
 const imageStyle = {
-  height: '450px',
+  height: '450px', 
   width: '100%',
   objectFit: 'cover',
-  borderRadius: '0 35px 35px 0', // Rounded corners on the right side
 };
 
 const App = () => {
@@ -68,8 +67,7 @@ const App = () => {
   }, [autoplay]);
 
   return (
-   // Set image width to 30%
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginBottom: '50px' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginBottom: '50px' }}>
       <Carousel autoplay={autoplay} ref={carouselRef} dotPosition="left" effect="fade">
         {images.map((image, index) => (
           <div key={index} style={{ marginBottom: '20px', height: '100%', width: '100%', position: 'relative', display: 'flex' }}>
@@ -87,7 +85,6 @@ const App = () => {
           </div>
         ))}
       </Carousel>
-
     </div>
   );
 };
