@@ -17,9 +17,9 @@ const data = Array.from({
 }));
 
 const Comment = () => (
-  <div style={{ display: 'flex' }}>
+  <div style={{ display: 'flex', flexWrap: 'wrap' }}>
     <List
-      style={{ marginTop: '20px', width: '50%', marginRight: '30px' }} // Add margin-right for comments
+      className="comment-list"
       itemLayout="vertical"
       size="small"
       pagination={{
@@ -29,6 +29,10 @@ const Comment = () => (
         pageSize: 2,
       }}
       dataSource={data}
+      style={{
+        width: '40%', // Set the width to 40%
+        marginRight: '30px',
+      }}
       renderItem={(item) => (
         <List.Item
           key={item.title}
@@ -57,10 +61,10 @@ const Comment = () => (
           }
           style={{
             border: '2px solid #d9d9d9',
-            borderRadius: '10px',
+            borderRadius: '5px', // Set the border radius to 5px
             boxShadow: '0 2px 8px rgba(0, 0, 0, 0.09)',
             marginBottom: '16px',
-            padding: '16px',
+            padding: '8px', // Set the padding to 8px
             transition: 'transform 0.2s',
             width: '100%',
             boxSizing: 'border-box',
@@ -83,10 +87,26 @@ const Comment = () => (
         </List.Item>
       )}
     />
-    {/* Wrap the Calendar component with CalendarWrapper */}
-    <CalendarWrapper>
-      <Calendar style={{ width: '50%' }} /> {/* Set the width of the calendar */}
+    <CalendarWrapper className="calendar-wrapper" style={{ width: '35%' }}>
+      <Calendar />
     </CalendarWrapper>
+
+    <style jsx>{`
+      @media (max-width: 768px) {
+        .comment-list,
+        .calendar-wrapper {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .list-item-meta-avatar {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    `}</style>
   </div>
 );
 

@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import dayLocaleData from 'dayjs/plugin/localeData';
 import { Calendar, Col, Radio, Row, Select, Typography, theme } from 'antd';
 dayjs.extend(dayLocaleData);
+
 const App = () => {
   const { token } = theme.useToken();
+  const [currentTime, setCurrentTime] = useState(dayjs().format('HH:mm:ss'));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(dayjs().format('HH:mm:ss'));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const onPanelChange = (value, mode) => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
+
   const wrapperStyle = {
     width: 300,
     border: `2px solid ${token.colorBorderSecondary}`,
     borderRadius: token.borderRadiusLG,
   };
+
   return (
     <div style={wrapperStyle}>
       <Calendar
@@ -52,7 +65,7 @@ const App = () => {
                 padding: 8,
               }}
             >
-              <Typography.Title level={4}>Custom header</Typography.Title>
+              <Typography.Text style={{ fontSize: '24px', fontWeight: 'bold', color: '#1890ff', marginBottom: '8px', display: 'block' }}>{currentTime}</Typography.Text>
               <Row gutter={8}>
                 <Col>
                   <Radio.Group
@@ -100,4 +113,5 @@ const App = () => {
     </div>
   );
 };
+
 export default App;

@@ -1,10 +1,12 @@
 import React from 'react';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, Col, Row,Rate  } from 'antd';
+import {  Avatar, Card, Col, Row,Rate  } from 'antd';
+import { ShoppingCartOutlined } from '@ant-design/icons';
+
 
 const { Meta } = Card;
 
-const App: React.FC = () => (
+const App= () => (
   <Row gutter={[16, 16]}>
     <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 8 }}>
       <Card
@@ -18,7 +20,7 @@ const App: React.FC = () => (
         actions={[
           <SettingOutlined key="setting" />,
           <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
+          <ShoppingCartOutlined />,
         ]}
         hoverable // Add hoverable functionality
         bordered // Add bordered style
@@ -43,7 +45,7 @@ const App: React.FC = () => (
         actions={[
           <SettingOutlined key="setting" />,
           <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
+          <ShoppingCartOutlined />,
         ]}
         hoverable // Add hoverable functionality
         bordered // Add bordered style
@@ -67,7 +69,7 @@ const App: React.FC = () => (
         actions={[
           <SettingOutlined key="setting" />,
           <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
+        <ShoppingCartOutlined />,
         ]}
         hoverable // Add hoverable functionality
         bordered // Add bordered style
