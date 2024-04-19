@@ -1,14 +1,13 @@
 import React from 'react';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { EditOutlined, SettingOutlined } from '@ant-design/icons';
 import {  Avatar, Card, Col, Row,Rate  } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 
 
 const { Meta } = Card;
-
 const App= () => (
   <Row gutter={[16, 16]}>
-    <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 8 }}>
+    <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 8 , margin:'auto'}}>
       <Card
         style={{ width: '100%' }}
         cover={
@@ -33,7 +32,7 @@ const App= () => (
         <Rate allowHalf defaultValue={3.5} style={{marginTop:'7px'}}/>
       </Card>
     </Col>
-    <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 8 }}>
+    <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 8, margin:'auto' }}>
       <Card
         style={{ width: '100%' }}
         cover={
@@ -57,7 +56,7 @@ const App= () => (
         />
         <Rate allowHalf defaultValue={3.5} style={{marginTop:'7px'}}/>
       </Card>
-    </Col><Col xs={24} sm={12} md={8} lg={6} style={{ padding: 8 }}>
+    </Col><Col xs={24} sm={12} md={8} lg={6} style={{ padding: 8, margin:'auto' }}>
       <Card
         style={{ width: '100%' }}
         cover={

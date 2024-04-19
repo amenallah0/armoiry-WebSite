@@ -30,6 +30,7 @@ const Comment = () => (
       }}
       dataSource={data}
       style={{
+        marginLeft:'35px',
         width: '40%', // Set the width to 40%
         marginRight: '30px',
       }}
