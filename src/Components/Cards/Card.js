@@ -5,6 +5,8 @@ import styled, { keyframes } from 'styled-components';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 
+import './Card.css';
+
 import backgroundImage1 from '../images/background22.png';
 import backgroundImage2 from '../images/background33.png';
 
@@ -137,7 +139,6 @@ const App = () => {
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column',
-      margin: '2px',
       background: 'linear-gradient(90deg, #D29763, #FFC68D)',
       overflowX: 'hidden',
       borderRadius: '25px'

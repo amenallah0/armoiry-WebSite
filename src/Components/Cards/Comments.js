@@ -30,6 +30,7 @@ const Comment = () => (
       }}
       dataSource={data}
       style={{
+        marginTop:'20px',
         marginLeft:'35px',
         width: '40%', // Set the width to 40%
         marginRight: '30px',
@@ -69,6 +70,7 @@ const Comment = () => (
             transition: 'transform 0.2s',
             width: '100%',
             boxSizing: 'border-box',
+            marginTop:'20px'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'scale(1.02)';
@@ -88,9 +90,7 @@ const Comment = () => (
         </List.Item>
       )}
     />
-    <CalendarWrapper className="calendar-wrapper" style={{ width: '35%' }}>
-      <Calendar />
-    </CalendarWrapper>
+    
 
     <style jsx>{`
       @media (max-width: 768px) {
