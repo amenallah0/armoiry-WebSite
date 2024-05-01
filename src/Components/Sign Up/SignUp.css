@@ -1,0 +1,39 @@
+.ant-form {
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ebedf0;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+    width: 500px;
+  }
+  
+  .ant-form-item-label {
+    text-align: left !important;
+    width: 250px;
+  }
+  
+  .ant-form-item-control {
+    margin-left: 70px !important;
+    
+  }
+  
+  .ant-form-item-label > label::after {
+    display: none !important;
+  }
+  
+  .SignUp-container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    background-color: antiquewhite;
+  }
+
+  .Title{
+    margin-top: 40px;
+     text-align: center;
+     font-size: x-large;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     font-weight: 24px;
+  }

@@ -1,0 +1,17 @@
+.item-container{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-color: #f8f9fa ;
+
+}
+
+.Title-items{
+    margin: 15px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 50px; 
+    text-shadow: rgb(255, 243, 197) 1px 0 10px;
+  }
+  

@@ -14,10 +14,11 @@ import Menu from '@mui/material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { alpha, styled } from '@mui/material/styles';
+import { BrowserRouter as Router, Link as RouterLink } from 'react-router-dom';
 
 import Logo from './../images/Logo.png';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Home', 'Produits Homme', 'Produits Femme', 'A Propos'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Search = styled('div')(({ theme }) => ({
@@ -81,114 +82,122 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'grey.100' }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <img
-            src={Logo}
-            alt="Logo"
-            style={{
-              width: '125px',
-              height: '40px',
-              marginRight: '8px',
-            }}
-          />
+    <Router>
+      <AppBar position="static" sx={{ backgroundColor: 'grey.100' }}>
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <img
+              src={Logo}
+              alt="Logo"
+              style={{
+                width: '125px',
+                height: '40px',
+                marginRight: '8px',
+              }}
+            />
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="menu"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size="large"
+                aria-label="menu"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: 'block', md: 'none' },
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography>{page}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+            <Box
               sx={{
-                display: { xs: 'block', md: 'none' },
+                flexGrow: 1,
+                display: { xs: 'none', md: 'flex' },
+                justifyContent: 'center',
+                gap: '20px',
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography>{page}</Typography>
-                </MenuItem>
+                <Button
+                  key={page}
+                  component={RouterLink}
+                  to={
+                    page === 'Home' ? '/' :
+                    page === 'Produits Homme' ? '/ProduitHomme' :
+                    page === 'Produits Femme' ? '/ProduitFemme' :
+                    '/apropos'
+                  }
+                  sx={{ color: 'black' }}
+                >
+                  {page}
+                </Button>
               ))}
-            </Menu>
-          </Box>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
-              justifyContent: 'center',
-              gap: '20px',
-            }}
-          >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ color: 'black' }}
+            </Box>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="User" src="/static/images/avatar/1.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
               >
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="User" src="/static/images/avatar/1.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography>{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </Router>
   );
 }
 

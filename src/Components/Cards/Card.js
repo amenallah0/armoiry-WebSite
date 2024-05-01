@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Carousel } from 'antd';
 import { FaShoppingCart } from 'react-icons/fa';
 import styled, { keyframes } from 'styled-components';
-import { Button, Flex } from 'antd';
+import { Button } from 'antd';
+import { Link } from 'react-router-dom';
+
 import backgroundImage1 from '../images/background22.png';
 import backgroundImage2 from '../images/background33.png';
 
@@ -16,12 +18,13 @@ const contentStyle = {
 
 const overlayStyle = {
   position: 'absolute',
-  top: '50%',
+  top: '45%',
   right: '25%',
   transform: 'translate(30%, -50%)',
   height: '25%',
   width: '40%',
   display: 'flex',
+  flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
 };
@@ -30,11 +33,13 @@ const textContainerStyle = {
   padding: '10px',
   textAlign: 'center',
   color: 'black',
-  fontSize: '50px',
+  fontSize: '40px',
   border: '0.5px solid black',
   borderRadius: '25px',
   boxShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)',
   backdropFilter: 'blur(10px)',
+  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Ajout de l'ombre au texte
+
 };
 
 const imageStyle = {
@@ -73,6 +78,11 @@ const App = () => {
   const [autoplay] = useState(true);
   const carouselRef = useRef(null);
   const [icons, setIcons] = useState([]);
+
+  const handleClick = () => {
+    // Ajoutez ici le code pour gérer le clic sur le bouton
+    console.log('Bouton cliqué');
+  };
 
   useEffect(() => {
     if (autoplay) {
@@ -133,22 +143,30 @@ const App = () => {
       borderRadius: '25px'
     }}>
       <AnimatedIconContainer>{icons}</AnimatedIconContainer>
-      <div >
+      <div>
         <Carousel autoplay={autoplay} ref={carouselRef} dotPosition="left" effect="fade">
           {images.map((image, index) => (
             <div key={index} style={{
-              margin: '40px',
               height: '100%',
               width: '100%',
               position: 'relative',
               display: 'flex',
             }}>
               <div style={overlayStyle}>
-                <div style={{ textAlign: 'center', color: 'black', fontSize: '40px', margin: '10px', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+                <div style={textContainerStyle}>
                   <p style={{ marginBottom: '5px' }}>تلقاو عنا أعز الأفريات بأرخص الأسوام</p>
                   <p style={{ marginBottom: '5px' }}>و التوصيل لباب الدار</p>
+                  <Link to="/SignUp">
+                  <Button type="dashed" size={'middle'} style={{ marginRight: '10px', color: 'red' }} onClick={handleClick}>
+                    Sign Up
+                  </Button>
+                  </Link>
+                  <Link to="/Apropos">
+                  <Button type="dashed" size={'middle'} style={{color: 'red'}} onClick={handleClick}>
+                    A Propos De Nous
+                  </Button>
+                  </Link>
                 </div>
-                
               </div>
               <img
                 src={image}
@@ -158,7 +176,6 @@ const App = () => {
             </div>
           ))}
         </Carousel>
-
       </div>
     </div>
   );
