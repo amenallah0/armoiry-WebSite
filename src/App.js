@@ -2,14 +2,16 @@ import React from 'react';
 import Routing from './router'
 import AppBar from './Components/Navbar/Navbar';
 import './App.css';
+import { BrowserRouter } from "react-router-dom";
 
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
+
       <AppBar />
       <Routing />
-    </div>
+      </BrowserRouter>
   );
 }
 

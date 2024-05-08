@@ -15,6 +15,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { alpha, styled } from '@mui/material/styles';
 import { BrowserRouter as Router, Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Logo from './../images/Logo.png';
 
@@ -82,10 +83,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <Router>
       <AppBar position="static" sx={{ backgroundColor: 'grey.100' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
+          <Link to='/'>
             <img
               src={Logo}
               alt="Logo"
@@ -95,6 +96,7 @@ function ResponsiveAppBar() {
                 marginRight: '8px',
               }}
             />
+            </Link>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
@@ -197,7 +199,6 @@ function ResponsiveAppBar() {
           </Toolbar>
         </Container>
       </AppBar>
-    </Router>
   );
 }
 

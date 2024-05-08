@@ -7,48 +7,49 @@ import { Link } from 'react-router-dom';
 
 import './Card.css';
 
-import backgroundImage1 from '../images/background22.png';
-import backgroundImage2 from '../images/background33.png';
+import backgroundImage1 from '../images/Home1.jpg';
+import backgroundImage2 from '../images/Home2.jpg';
+import backgroundImage3 from '../images/Home3.jpg';
 
-const images = [backgroundImage1, backgroundImage2];
+
+const images = [backgroundImage1, backgroundImage2,backgroundImage3];
 
 const contentStyle = {
   margin: '15px 0',
-  height: '150px',
+  height: '120px',
   objectFit: 'contain',
 };
 
 const overlayStyle = {
   position: 'absolute',
   top: '45%',
-  right: '25%',
-  transform: 'translate(30%, -50%)',
+  left: '50%', // Positionner à gauche à 50%
+  transform: 'translate(-50%, -50%)', // Centrer horizontalement
   height: '25%',
-  width: '40%',
+  width: '100%', // Définir la largeur à 100%
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
 };
 
-const textContainerStyle = {
-  padding: '10px',
-  textAlign: 'center',
-  color: 'black',
-  fontSize: '40px',
-  border: '0.5px solid black',
-  borderRadius: '25px',
-  boxShadow: '2px 2px 8px rgba(0, 0, 0, 0.7)',
-  backdropFilter: 'blur(10px)',
-  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Ajout de l'ombre au texte
 
+const textContainerStyle = {
+  marginTop:'280px',
+  textAlign: 'center',
+  color: 'white',
+  fontSize: '20px',
+  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Ajout de l'ombre au texte
 };
 
 const imageStyle = {
   height: '450px',
-  objectFit: 'contain',
-  marginLeft: '35px',
+  objectFit: 'cover',
+  width: '99vw', 
+  marginLeft:'5px'
 };
+
+
 
 const translate = keyframes`
   0% {
@@ -60,7 +61,7 @@ const translate = keyframes`
 `;
 
 const IconContainer = styled.div`
-  margin-top: 5px;
+  margin-top: 10px;
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
@@ -81,18 +82,13 @@ const App = () => {
   const carouselRef = useRef(null);
   const [icons, setIcons] = useState([]);
 
-  const handleClick = () => {
-    // Ajoutez ici le code pour gérer le clic sur le bouton
-    console.log('Bouton cliqué');
-  };
-
   useEffect(() => {
     if (autoplay) {
       const intervalId = setInterval(() => {
         if (carouselRef.current) {
           carouselRef.current.next();
         }
-      }, 2000);
+      }, 5000);
 
       return () => clearInterval(intervalId);
     }
@@ -139,9 +135,8 @@ const App = () => {
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column',
-      background: 'linear-gradient(90deg, #D29763, #FFC68D)',
       overflowX: 'hidden',
-      borderRadius: '25px'
+      borderRadius: '0 0 45px 45px'
     }}>
       <AnimatedIconContainer>{icons}</AnimatedIconContainer>
       <div>
@@ -149,7 +144,6 @@ const App = () => {
           {images.map((image, index) => (
             <div key={index} style={{
               height: '100%',
-              width: '100%',
               position: 'relative',
               display: 'flex',
             }}>
@@ -157,13 +151,14 @@ const App = () => {
                 <div style={textContainerStyle}>
                   <p style={{ marginBottom: '5px' }}>تلقاو عنا أعز الأفريات بأرخص الأسوام</p>
                   <p style={{ marginBottom: '5px' }}>و التوصيل لباب الدار</p>
+                  <br/>
                   <Link to="/SignUp">
-                  <Button type="dashed" size={'middle'} style={{ marginRight: '10px', color: 'red' }} onClick={handleClick}>
+                  <Button type="dashed" size={'middle'} style={{ marginRight: '10px', color: 'white' , backgroundColor:'transparent'}}>
                     Sign Up
                   </Button>
                   </Link>
                   <Link to="/Apropos">
-                  <Button type="dashed" size={'middle'} style={{color: 'red'}} onClick={handleClick}>
+                  <Button type="dashed" size={'middle'} style={{ marginRight: '10px', color: 'white' , backgroundColor:'transparent'}}>
                     A Propos De Nous
                   </Button>
                   </Link>

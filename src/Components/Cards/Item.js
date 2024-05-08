@@ -1,6 +1,6 @@
 import React from 'react';
 import { EditOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, Col, Row, Rate } from 'antd';
+import { Avatar, Card, Col, Row, Rate, Button } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 
 import './Item.css';
@@ -24,9 +24,14 @@ const App = () => (
         <h1>hello</h1>
         <h1>hello</h1>
         <h1>hello</h1>
+        <h1>hello</h1>
+        <h1>hello</h1>
+        <h1>hello</h1>
+        <h1>hello</h1>
+        <h1>hello</h1>
         
       </div>
-      <Row gutter={8} justify="center" align="top">
+      <Row gutter={8} justify="center" align="top" style={{border:'1px solid #C0C0C0', borderRadius:'10px'}}>
         <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 16 , margin:'15px'}}>
           <Card
             style={{ width: '100%' }}
@@ -34,6 +39,8 @@ const App = () => (
               <img
                 alt="example"
                 src={gar1}
+                style={{ objectFit: 'fill', height: '300px' }} // Ajustez la taille de l'image ici
+
               />
             }
             actions={[
@@ -57,9 +64,10 @@ const App = () => (
             style={{ width: '100%' }} // Modifiez la largeur en pourcentage pour augmenter la taille
             cover={
               <img
-                alt="example"
-                src={gar2}
-              />
+              alt="example"
+              src={gar1}
+              style={{ objectFit: 'fill', height: '300px' }} // Ajustez la taille de l'image ici
+            />
             }
             actions={[
               <SettingOutlined key="setting" />,
@@ -84,6 +92,8 @@ const App = () => (
               <img
                 alt="example"
                 src={gar2}
+                style={{ objectFit: 'fill', height: '300px' }} // Ajustez la taille de l'image ici
+
               />
             }
             actions={[
@@ -109,6 +119,8 @@ const App = () => (
               <img
                 alt="example"
                 src={gar1}
+               style={{ objectFit: 'fill', height: '300px' }} // Ajustez la taille de l'image ici
+
               />
             }
             actions={[
@@ -134,6 +146,8 @@ const App = () => (
               <img
                 alt="example"
                 src={gar1}
+               style={{ objectFit: 'fill', height: '300px' }} // Ajustez la taille de l'image ici
+
               />
             }
             actions={[
@@ -159,6 +173,8 @@ const App = () => (
               <img
                 alt="example"
                 src={gar1}
+               style={{ objectFit: 'fill', height: '300px' }} // Ajustez la taille de l'image ici
+
               />
             }
             actions={[
@@ -179,6 +195,7 @@ const App = () => (
         </Col>
       </Row>
     </div>
+    <Button style={{width:'200px', margin:'auto'}}>Voir Tout Les Produits</Button>
   </div>
 );
 

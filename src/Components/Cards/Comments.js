@@ -30,10 +30,10 @@ const Comment = () => (
       }}
       dataSource={data}
       style={{
-        marginTop:'20px',
-        marginLeft:'35px',
-        width: '40%', // Set the width to 40%
-        marginRight: '30px',
+        margin:'auto',
+        width: '90vw', 
+        justifyContent:'center',
+        alignItems:'center'// Set the width to 40%
       }}
       renderItem={(item) => (
         <List.Item
