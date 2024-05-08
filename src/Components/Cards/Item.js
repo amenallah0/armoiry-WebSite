@@ -2,6 +2,12 @@ import React from 'react';
 import { EditOutlined, SettingOutlined } from '@ant-design/icons';
 import { Avatar, Card, Col, Row, Rate, Button } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import {
+  RangeSlider,
+  RangeSliderTrack,
+  RangeSliderFilledTrack,
+  RangeSliderThumb,
+} from '@chakra-ui/react'
 
 import './Item.css';
 import gar1 from './../images/gar1.webp'
@@ -15,22 +21,45 @@ const App = () => (
       <h1>Nos Promotions</h1>
     </div>
     <div className='elements-container'>
-      <div className='Side-Bar'>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        <h1>hello</h1>
-        
+    <div className='Side-Bar'>
+      <h4>Browse</h4>
+      <hr class="separator" />
+      <div className='SideBar-buttons'> 
+        <button>Tous les produits</button> 
+        <button>Produits Homme</button>
+        <button>Produits Femme</button>
+        <button>Produits Bébé</button>
       </div>
+      <hr class="separator" />
+      <h4>Marque</h4>
+      <hr class="separator" />
+      <div className='SideBar-buttons'> 
+        <button>Nike</button> 
+        <button>Adidas</button>
+        <button>H&M</button>
+        <button>Exist</button>
+        <button>H&M</button>
+        <button>Exist</button>
+        <button>H&M</button>
+        <button>Exist</button>
+      </div>
+      <hr class="separator" />
+      
+      <h4>Échelle des prix</h4>
+      <hr class="separator" />
+      <div className='SideBar-buttons'> 
+          <div class="price-range-filter">
+            <label for="minPrice">Prix minimum:</label>
+            <input type="number" id="minPrice" name="minPrice" min="0" />
+
+            <label for="maxPrice">Prix maximum:</label>
+            <input type="number" id="maxPrice" name="maxPrice" />
+
+            <button type="button">Filtrer par prix</button>
+           </div>
+
+      </div>
+    </div>
       <Row gutter={8} justify="center" align="top" style={{border:'1px solid #C0C0C0', borderRadius:'10px'}}>
         <Col xs={24} sm={12} md={8} lg={6} style={{ padding: 16 , margin:'15px'}}>
           <Card
@@ -195,7 +224,6 @@ const App = () => (
         </Col>
       </Row>
     </div>
-    <Button style={{width:'200px', margin:'auto'}}>Voir Tout Les Produits</Button>
   </div>
 );
 

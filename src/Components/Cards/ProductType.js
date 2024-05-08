@@ -8,14 +8,18 @@ import ProduitHomme from './../images/produithomme.jpg';
 import ProduitFemme from './../images/produitfemme.jpg';
 import ProduitBebe from './../images/produitbebe.jpg';
 
+
 function Type() {
   return (
+    
     <div className='Product-Type'>
-      <div className='Produit'>Nos Produits</div>
+      <div className='Produit'>
+        Nos Produits
+      </div>
       <div className='images-container'>
       <div className='image-container'>
         <Image
-          boxSize='250px'
+          boxSize='300px'
           objectFit='fill'
           src={ProduitHomme}
           alt='Homme'
@@ -24,7 +28,7 @@ function Type() {
         <div className='overlay'>
           <div className='title'>Produit Homme</div>
           <Link to='/ProduitHomme'>
-              <Button type="dashed" size={'middle'} style={{ marginRight: '10px', color: 'white' , backgroundColor:'transparent'}}>
+          <Button type="dashed" size={'big'} style={{ marginRight: '10px', color: 'white' , backgroundColor:'transparent',border:'1 solid white', borderRadius:'20px'}}>
             Voir Plus</Button>
         </Link>
 
@@ -32,7 +36,7 @@ function Type() {
       </div>
       <div className='image-container'>
         <Image
-          boxSize='250px'
+          boxSize='300px'
           objectFit='fill'
           src={ProduitFemme}
           alt='Femme'
@@ -48,7 +52,7 @@ function Type() {
       </div>
       <div className='image-container'>
         <Image
-          boxSize='250px'
+          boxSize='300px'
           objectFit='fill'
           src={ProduitBebe}
           alt='Bebe'

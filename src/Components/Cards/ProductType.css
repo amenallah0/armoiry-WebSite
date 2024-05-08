@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
 .Product-Type {
     display: flex;
     flex-direction: column;
@@ -7,9 +9,11 @@
   text-align: center;
   width: 100%;
   margin-top: 20px;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   text-decoration: underline;
+  text-shadow: rgb(78, 77, 77) 1px 0 10px;
+  font-family: 'Caveat';
 
 }
 .images-container {
@@ -71,3 +75,6 @@
   .Button {
     margin-top: 40px;
   }
+  
+
+  
