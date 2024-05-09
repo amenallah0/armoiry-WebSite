@@ -105,10 +105,12 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   left: 0;
+  width: auto;
 }
 
 .price-range-filter button[type="button"] {
   background-color: #656665; 
+  border: 0.5px dashed grey;
   color: white;
   border: none;
   border-radius: 4px;
